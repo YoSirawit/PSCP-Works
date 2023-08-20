@@ -7,13 +7,15 @@ def main():
     every = int(input())
     free = int(input())
     money = int(input())
-    get = (money//bottleprice)-every
-    result = 0
+    result = money//bottleprice
+    get = result
 
-    if free == 0:
-        result = money//bottleprice
-    else:
-        result = ((get//abs(every-free))*free) + every + free + get
+    while get >= every and free != 0:
+        if every == 0:
+            break
+        result += free
+        get += free
+        get -= every
 
     print(result)
 
